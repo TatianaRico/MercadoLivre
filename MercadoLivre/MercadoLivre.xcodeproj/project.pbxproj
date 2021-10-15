@@ -15,6 +15,7 @@
 		B9E15B2C2718D8C700CF20F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9E15B2A2718D8C700CF20F0 /* LaunchScreen.storyboard */; };
 		B9E15B372718D8C700CF20F0 /* MercadoLivreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E15B362718D8C700CF20F0 /* MercadoLivreTests.swift */; };
 		B9E15B422718D8C700CF20F0 /* MercadoLivreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E15B412718D8C700CF20F0 /* MercadoLivreUITests.swift */; };
+		B9E15B502719FF3A00CF20F0 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E15B4F2719FF3A00CF20F0 /* ListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		B9E15B3D2718D8C700CF20F0 /* MercadoLivreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MercadoLivreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E15B412718D8C700CF20F0 /* MercadoLivreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercadoLivreUITests.swift; sourceTree = "<group>"; };
 		B9E15B432718D8C700CF20F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9E15B4F2719FF3A00CF20F0 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				B9E15B282718D8C700CF20F0 /* Assets.xcassets */,
 				B9E15B2A2718D8C700CF20F0 /* LaunchScreen.storyboard */,
 				B9E15B2D2718D8C700CF20F0 /* Info.plist */,
+				B9E15B4F2719FF3A00CF20F0 /* ListModel.swift */,
 			);
 			path = MercadoLivre;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				B9E15B242718D8BE00CF20F0 /* ViewController.swift in Sources */,
 				B9E15B202718D8BE00CF20F0 /* AppDelegate.swift in Sources */,
 				B9E15B222718D8BE00CF20F0 /* SceneDelegate.swift in Sources */,
+				B9E15B502719FF3A00CF20F0 /* ListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
