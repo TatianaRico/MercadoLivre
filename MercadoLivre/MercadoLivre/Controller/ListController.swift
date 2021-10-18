@@ -9,7 +9,7 @@
 import Foundation
 
 class ListController: NSObject {
-
+    
     private var listProduct: ListModel?
     private let request = Request()
     
@@ -21,7 +21,7 @@ class ListController: NSObject {
         self.listProduct = listProduct
     }
     
-    func searchProduct(search: String, completion: @escaping (Bool) -> Void) {
+    public func searchProduct(search: String, completion: @escaping (Bool) -> Void) {
         request.searchProduct(search: search) { [weak self] (listModel, success) in
             if success {
                 self?.listProduct = listModel
@@ -32,7 +32,7 @@ class ListController: NSObject {
         }
     }
     
-    func getProduct(indexPath: IndexPath) -> Result? {
+    public func getProduct(indexPath: IndexPath) -> Result? {
         return listProduct?.results?[indexPath.row]
     }
     

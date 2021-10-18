@@ -15,9 +15,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var productValue: UILabel!
     @IBOutlet weak var productLink: ZSWTappableLabel!
     
-    var controller: DetailController?
-    let utils = Utils()
-
+    public var controller: DetailController?
+    private let utils = Utils()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -26,7 +26,7 @@ class DetailViewController: UIViewController {
         configureView()
     }
     
-    func configureView() {
+    private func configureView() {
         productTitle.text = controller?.title
         productValue.text = controller?.price
         productImage.sd_setImage(with: URL(string: controller?.productImage ?? ""), completed: nil)

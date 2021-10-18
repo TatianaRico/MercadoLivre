@@ -9,11 +9,11 @@
 import Foundation
 
 class SearchController: NSObject {
-
+    
     private let request = Request()
     private var listProduct: ListModel?
     
-    func searchProduct(search: String, completion: @escaping (Bool) -> Void) {
+    public func searchProduct(search: String, completion: @escaping (Bool) -> Void) {
         request.searchProduct(search: search) { [weak self] (listModel, success) in
             if success {
                 self?.listProduct = listModel
@@ -24,7 +24,7 @@ class SearchController: NSObject {
         }
     }
     
-    func getListProduct() -> ListModel? {
+    public func getListProduct() -> ListModel? {
         return listProduct
     }
 }

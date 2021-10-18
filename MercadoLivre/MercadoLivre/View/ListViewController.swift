@@ -13,8 +13,8 @@ class ListViewController: UIViewController {
     @IBOutlet weak var listTbView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
     
-    var controller: ListController?
-    var spinners: Spinners?
+    public var controller: ListController?
+    private var spinners: Spinners?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,17 +23,17 @@ class ListViewController: UIViewController {
         configureSpinner()
     }
     
-    func configureTableView() {
+    private func configureTableView() {
         listTbView.dataSource = self
         listTbView.delegate = self
         listTbView.reloadData()
     }
     
-    func configureSpinner() {
+    private func configureSpinner() {
         spinners = Spinners(type: .bubble, with: self)
     }
     
-    func goToDetail(indexPath: IndexPath) {
+    private func goToDetail(indexPath: IndexPath) {
         if let vc = self.storyboard?.instantiateViewController(identifier: "DetailViewController") as? DetailViewController {
             vc.controller = DetailController(product: controller?.getProduct(indexPath: indexPath))
             self.navigationController?.pushViewController(vc, animated: true)

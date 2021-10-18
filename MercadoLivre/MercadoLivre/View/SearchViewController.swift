@@ -13,8 +13,8 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var searchTextField: UITextField!
     
-    let controller = SearchController()
-    var spinners: Spinners?
+    public let controller = SearchController()
+    private var spinners: Spinners?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class SearchViewController: UIViewController {
         configureSpinner()
     }
     
-    func configureSpinner() {
+    private func configureSpinner() {
         spinners = Spinners(type: .bubble, with: self)
     }
     
@@ -34,14 +34,14 @@ class SearchViewController: UIViewController {
         }
     }
     
-    func goToDetail() {
+    private func goToDetail() {
         if let vc = self.storyboard?.instantiateViewController(identifier: "ListViewController") as? ListViewController {
             vc.controller = ListController(listProduct: controller.getListProduct())
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
-    func showError() {
+    private func showError() {
         let alert = UIAlertController(title: "Error", message: "Erro ao procurar o produto", preferredStyle: .alert)
         let btnOk = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(btnOk)

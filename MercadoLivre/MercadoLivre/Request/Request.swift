@@ -10,13 +10,13 @@ import Alamofire
 
 class Request: NSObject {
     
-    var baseURL: String {
+    private var baseURL: String {
         return Bundle.main.object(forInfoDictionaryKey: "BaseURL") as? String ?? ""
     }
     
-    let endPointSearch = "/search?q="
+    private let endPointSearch = "/search?q="
     
-    func searchProduct(search: String, completion: @escaping (ListModel?, Bool) -> Void) {
+    public func searchProduct(search: String, completion: @escaping (ListModel?, Bool) -> Void) {
         AF.request("\(baseURL+endPointSearch)\(search)", method: .get).responseJSON { (response) in
             switch response.result {
             case .success:

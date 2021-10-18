@@ -10,22 +10,22 @@ import Foundation
 
 class DetailController: NSObject {
     
-    let utils = Utils()
-    let product: Result?
+    private let utils = Utils()
+    private let product: Result?
     
-    var title: String {
+    public var title: String {
         return product?.title ?? ""
     }
     
-    var price: String {
+    public var price: String {
         utils.formmatedNumber(number: product?.price ?? 0)
     }
     
-    var productImage: String {
+    public var productImage: String {
         return product?.thumbnail ?? ""
     }
     
-    var productLink: String {
+    public var productLink: String {
         return product?.permalink ?? ""
     }
     
