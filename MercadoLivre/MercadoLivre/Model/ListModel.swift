@@ -1,15 +1,8 @@
-//
-//  ListModel.swift
-//  MercadoLivre
-//
-//  Created by Tatiana Rico on 15/10/21.
-//  Copyright © 2021 Tatiana Rico. All rights reserved.
-//
 
 import Foundation
 
 // MARK: - Welcome
-struct Welcome: Codable {
+struct ListModel: Codable {
     let siteID: String?
     let countryDefaultTimeZone, query: String?
     let paging: Paging?
@@ -20,12 +13,12 @@ struct Welcome: Codable {
     let availableFilters: [AvailableFilter]?
 
     enum CodingKeys: String, CodingKey {
-        case siteID
-        case countryDefaultTimeZone
+        case siteID = "site_id"
+        case countryDefaultTimeZone = "country_default_time_zone"
         case query, paging, results, sort
-        case availableSorts
+        case availableSorts = "available_sorts"
         case filters
-        case availableFilters
+        case availableFilters = "available_filters"
     }
 }
 
@@ -60,7 +53,7 @@ struct FilterValue: Codable {
 
     enum CodingKeys: String, CodingKey {
         case id, name
-        case pathFromRoot
+        case pathFromRoot = "path_from_root"
     }
 }
 
@@ -70,7 +63,7 @@ struct Paging: Codable {
 
     enum CodingKeys: String, CodingKey {
         case total
-        case primaryResults
+        case primaryResults = "primary_results"
         case offset, limit
     }
 }
@@ -105,42 +98,42 @@ struct Result: Codable {
     let officialStoreID: Int?
     let domainID: String?
     let catalogProductID: String?
-    let tags: String?
+    let tags: [String]?
     let catalogListing, useThumbnailID: Bool?
     let offerScore, offerShare, matchScore, winnerItemID: String?
     let orderBackend: Int?
 
     enum CodingKeys: String, CodingKey {
         case id
-        case siteID
+        case siteID = "site_id"
         case title, seller, price, prices
-        case salePrice
-        case currencyID
-        case availableQuantity
-        case soldQuantity
-        case buyingMode
-        case listingTypeID
-        case stopTime
+        case salePrice = "sale_price"
+        case currencyID = "currency_id"
+        case availableQuantity = "available_quantity"
+        case soldQuantity = "sold_quantity"
+        case buyingMode = "buying_mode"
+        case listingTypeID = "listing_type_id"
+        case stopTime = "stop_time"
         case condition, permalink, thumbnail
-        case thumbnailID
-        case acceptsMercadopago
+        case thumbnailID = "thumbnail_id"
+        case acceptsMercadopago = "accepts_mercadopago"
         case installments, address, shipping
-        case sellerAddress
+        case sellerAddress = "seller_address"
         case attributes
-        case differentialPricing
-        case originalPrice
-        case categoryID
-        case officialStoreID
-        case domainID
-        case catalogProductID
+        case differentialPricing = "differential_pricing"
+        case originalPrice = "original_price"
+        case categoryID = "category_id"
+        case officialStoreID = "official_store_id"
+        case domainID = "domain_id"
+        case catalogProductID = "catalog_product_id"
         case tags
-        case catalogListing
-        case useThumbnailID
-        case offerScore
-        case offerShare
-        case matchScore
-        case winnerItemID
-        case orderBackend
+        case catalogListing = "catalog_listing"
+        case useThumbnailID = "use_thumbnail_id"
+        case offerScore = "offer_score"
+        case offerShare = "offer_share"
+        case matchScore = "match_score"
+        case winnerItemID = "winner_item_id"
+        case orderBackend = "order_backend"
     }
 }
 
@@ -151,10 +144,10 @@ struct Address: Codable {
     let cityID, cityName: String?
 
     enum CodingKeys: String, CodingKey {
-        case stateID
-        case stateName
-        case cityID
-        case cityName
+        case stateID = "state_id"
+        case stateName = "state_name"
+        case cityID = "city_id"
+        case cityName = "city_name"
     }
 }
 
@@ -162,7 +155,6 @@ struct Address: Codable {
 struct Attribute: Codable {
     let source: Int?
     let name: String?
-    let valueStruct: Struct?
     let values: [AttributeValue]?
     let attributeGroupID: String?
     let attributeGroupName: String?
@@ -172,20 +164,13 @@ struct Attribute: Codable {
 
     enum CodingKeys: String, CodingKey {
         case source, name
-        case valueStruct
         case values
-        case attributeGroupID
-        case attributeGroupName
+        case attributeGroupID = "attribute_group_id"
+        case attributeGroupName = "attribute_group_name"
         case id
-        case valueID
-        case valueName
+        case valueID = "value_id"
+        case valueName = "value_name"
     }
-}
-
-// MARK: - Struct
-struct Struct: Codable {
-    let unit: String?
-    let number: Double?
 }
 
 
@@ -193,12 +178,10 @@ struct Struct: Codable {
 struct AttributeValue: Codable {
     let id: String?
     let name: String?
-    let valueStruct: Struct?
     let source: Int?
 
     enum CodingKeys: String, CodingKey {
         case id, name
-        case valueStruct
         case source
     }
 }
@@ -208,6 +191,7 @@ struct DifferentialPricing: Codable {
     let id: Int?
 }
 
+
 // MARK: - Installments
 struct Installments: Codable {
     let quantity: Int?
@@ -216,7 +200,7 @@ struct Installments: Codable {
 
     enum CodingKeys: String, CodingKey {
         case quantity, amount, rate
-        case currencyID
+        case currencyID = "currency_id"
     }
 }
 
@@ -225,15 +209,13 @@ struct Prices: Codable {
     let id: String?
     let prices: [Price]?
     let presentation: Presentation?
-    let paymentMethodPrices: String?
+    let paymentMethodPrices: [String]?
     let referencePrices: [Price]?
-    let purchaseDiscounts: String?
 
     enum CodingKeys: String, CodingKey {
         case id, prices, presentation
-        case paymentMethodPrices
-        case referencePrices
-        case purchaseDiscounts
+        case paymentMethodPrices = "payment_method_prices"
+        case referencePrices = "reference_prices"
     }
 }
 
@@ -242,7 +224,7 @@ struct Presentation: Codable {
     let displayCurrency: String?
 
     enum CodingKeys: String, CodingKey {
-        case displayCurrency
+        case displayCurrency = "display_currency"
     }
 }
 
@@ -253,19 +235,19 @@ struct Price: Codable {
     let amount: Double?
     let regularAmount: Double?
     let currencyID: String?
-    let lastUpdated: Date?
-    let conditions: String?
+    let lastUpdated: String?
+    let conditions: Conditions?
     let exchangeRateContext: String?
     let metadata: Metadata?
-    let tags: String?
+    let tags: [String]?
 
     enum CodingKeys: String, CodingKey {
         case id, type, amount
-        case regularAmount
-        case currencyID
-        case lastUpdated
+        case regularAmount = "regular_amount"
+        case currencyID = "currency_id"
+        case lastUpdated = "last_updated"
         case conditions
-        case exchangeRateContext
+        case exchangeRateContext = "exchange_rate_context"
         case metadata, tags
     }
 }
@@ -273,13 +255,13 @@ struct Price: Codable {
 // MARK: - Conditions
 struct Conditions: Codable {
     let contextRestrictions: [String]?
-    let startTime, endTime: Date?
+    let startTime, endTime: String?
     let eligible: Bool?
 
     enum CodingKeys: String, CodingKey {
-        case contextRestrictions
-        case startTime
-        case endTime
+        case contextRestrictions = "context_restrictions"
+        case startTime = "start_time"
+        case endTime = "end_time"
         case eligible
     }
 }
@@ -289,19 +271,17 @@ struct Metadata: Codable {
     let promotionID: String?
     let promotionType: String?
     let campaignID: String?
-    let discountMeliAmount: Int?
     let campaignDiscountPercentage: Double?
-    let campaignEndDate: Date?
+    let campaignEndDate: String?
     let orderItemPrice: Double?
 
     enum CodingKeys: String, CodingKey {
-        case promotionID
-        case promotionType
-        case campaignID
-        case discountMeliAmount
-        case campaignDiscountPercentage
-        case campaignEndDate
-        case orderItemPrice
+        case promotionID = "promotion_id"
+        case promotionType = "promotion_type"
+        case campaignID = "campaign_id"
+        case campaignDiscountPercentage = "campaign_discount_percentage"
+        case campaignEndDate = "campaign_end_date"
+        case orderItemPrice = "order_item_price"
     }
 }
 
@@ -317,11 +297,11 @@ struct Seller: Codable {
 
     enum CodingKeys: String, CodingKey {
         case id, permalink
-        case registrationDate
-        case carDealer
-        case realEstateAgency
+        case registrationDate = "registration_date"
+        case carDealer = "car_dealer"
+        case realEstateAgency = "real_estate_agency"
         case tags
-        case sellerReputation
+        case sellerReputation = "seller_reputation"
         case eshop
     }
 }
@@ -335,21 +315,20 @@ struct Eshop: Codable {
     let siteID: String?
     let eshopLogoURL: String?
     let eshopStatusID, eshopExperience: Int?
-    let eshopLocations: String?
+    let eshopLocations: [String]?
 
     enum CodingKeys: String, CodingKey {
         case seller
-        case eshopRubro
-        case eshopID
-        case nickName
-        case siteID
-        case eshopLogoURL
-        case eshopStatusID
-        case eshopExperience
-        case eshopLocations
+        case eshopRubro = "eshop_rubro"
+        case eshopID = "eshop_id"
+        case nickName = "nick_name"
+        case siteID = "site_id"
+        case eshopLogoURL = "eshop_logo_url"
+        case eshopStatusID = "eshop_status_id"
+        case eshopExperience = "eshop_experience"
+        case eshopLocations = "eshop_locations"
     }
 }
-
 
 // MARK: - SellerReputation
 struct SellerReputation: Codable {
@@ -360,11 +339,11 @@ struct SellerReputation: Codable {
     let realLevel, protectionEndDate: String?
 
     enum CodingKeys: String, CodingKey {
-        case powerSellerStatus
-        case levelID
+        case powerSellerStatus = "power_seller_status"
+        case levelID = "level_id"
         case metrics, transactions
-        case realLevel
-        case protectionEndDate
+        case realLevel = "real_level"
+        case protectionEndDate = "protection_end_date"
     }
 }
 
@@ -375,7 +354,7 @@ struct Metrics: Codable {
 
     enum CodingKeys: String, CodingKey {
         case cancellations, claims
-        case delayedHandlingTime
+        case delayedHandlingTime = "delayed_handling_time"
         case sales
     }
 }
@@ -394,16 +373,18 @@ struct Excluded: Codable {
     let realRate: Double?
 
     enum CodingKeys: String, CodingKey {
-        case realValue
-        case realRate
+        case realValue = "real_value"
+        case realRate = "real_rate"
     }
 }
+
 
 // MARK: - Sales
 struct Sales: Codable {
     let period: String?
     let completed: Int?
 }
+
 
 // MARK: - Transactions
 struct Transactions: Codable {
@@ -413,6 +394,7 @@ struct Transactions: Codable {
     let ratings: Ratings?
     let completed: Int?
 }
+
 
 // MARK: - Ratings
 struct Ratings: Codable {
@@ -427,8 +409,8 @@ struct SellerAddress: Codable {
 
     enum CodingKeys: String, CodingKey {
         case id, comment
-        case addressLine
-        case zipCode
+        case addressLine = "address_line"
+        case zipCode = "zip_code"
         case country, state, city, latitude, longitude
     }
 }
@@ -442,9 +424,9 @@ struct Shipping: Codable {
     let storePickUp: Bool?
 
     enum CodingKeys: String, CodingKey {
-        case freeShipping
+        case freeShipping = "free_shipping"
         case mode, tags
-        case logisticType
-        case storePickUp
+        case logisticType = "logistic_type"
+        case storePickUp = "store_pick_up"
     }
 }

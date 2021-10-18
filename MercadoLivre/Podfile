@@ -1,0 +1,23 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'MercadoLivre' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for MercadoLivre
+  pod 'Alamofire'
+  pod 'Spinners'
+  pod 'SDWebImage'
+  pod "ZSWTappableLabel", "~> 3.3"
+  
+  target 'MercadoLivreTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'MercadoLivreUITests' do
+    # Pods for testing
+  end
+
+end
